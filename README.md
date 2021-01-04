@@ -1,11 +1,11 @@
-Tengio Checkstyle Plugin
+CodeQuality Plugin
 ========================
 
-Basic plugin to abstract company wide checkstyle configuration.
+Basic plugin to abstract company wide CodeQuality configuration.
 
 Basic functionality of this plugin are:
-- This plugin reuse checkstyle plugin and inject the checkstyle task ans checkstyleMain to execute Checkstyle on an android project so there is no need of additional configuration.
-- Included in the jar and use as configuration includes the checkstyle.xml
+- This plugin reuse checkstyle plugin and inject the checkstyle task ans checkstyleMain + pmdMain to execute Checkstyle and pmd on an android project so there is no need of additional configuration.
+- Included in the jar and use as configuration includes the checkstyle.xml, supressions.xml and java.xml
 
 Usage
 -----
@@ -16,23 +16,27 @@ Build script snippet for use in all Gradle versions:
 
 ```
 buildscript {
-  repositories {
-    maven {
-      url "https://plugins.gradle.org/m2/"
+    repositories {
+         mavenLocal()
     }
-  }
-  dependencies {
-    classpath "gradle.plugin.com.tengio.gradle:tengio-checkstyle-plugin:1.0"
-  }
+    dependencies {
+         classpath 'com.currencycloud:checkstyle-plugin:1.57'
+    }
 }
 
-apply plugin: "com.tengio.gradle.tengio-checkstyle-plugin"
+repositories {
+    mavenCentral()
+}
+
+apply plugin: 'java'
+apply plugin: 'com.currencycloud.checkstyle-plugin'
+
 ```
 
 Build script snippet for new, incubating, plugin mechanism introduced in Gradle 2.1:
 
 ```
 plugins {
-  id "com.tengio.gradle.tengio-checkstyle-plugin" version "1.0"
+  id "om.currencycloud.checkstyle-plugin" version "1.57"
 }
 ```
