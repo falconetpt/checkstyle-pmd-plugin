@@ -7,8 +7,9 @@ buildscript {
    }
 
    dependencies {
-       classpath 'com.puppycrawl.tools:checkstyle:7.3'
+       classpath 'com.puppycrawl.tools:checkstyle:8.38'
        classpath "com.gradle.publish:plugin-publish-plugin:0.9.7"
+       classpath 'net.sourceforge.pmd:pmd:6.30.0'
    }
 }
 
@@ -26,8 +27,8 @@ dependencies {
     compile localGroovy()
 }
 
-group = 'com.tengio.gradle'
-version = '1.0'
+group = 'com.currencycloud'
+version = '1.57'
 
 uploadArchives {
     repositories {
@@ -45,8 +46,8 @@ pluginBundle {
 
   plugins {
     greetingsPlugin {
-      id = 'com.tengio.gradle.tengio-checkstyle-plugin'
-      displayName = 'Tengio checkstyle plugin'
+      id = 'com.currencycloud.checkstyle-plugin'
+      displayName = 'Checkstyle plugin'
     }
   }
 }
