@@ -40,3 +40,40 @@ plugins {
   id "om.currencycloud.checkstyle-plugin" version "1.57"
 }
 ```
+
+
+## Overview
+
+### US Link
+
+
+### Type of change
+- [ ] Bug fix (non-breaking change which fixes an issue)
+- [x] New feature (non-breaking change which adds functionality)
+- [ ] Breaking change (fix or feature that would cause existing functionality to not work as expected)
+- [ ] Refactoring
+- [ ] This change requires a documentation update
+
+### What is the solution?
+Creates the plugin so that checkstyle and pmd are used across projects
+simply by including the plugin
+
+### What are the main changes this MR?
+Creates plugin, adds checkstyle, suppression and pmd convenctions to the resources
+
+
+## Reviewing
+
+### Which order of files makes the most sense for the reviewer?
+CheckstylePlugin
+
+## Other Notes
+we added:
+
+~~~
+<module name="SuppressionFilter">
+        <property name="file" value="${suppressionFile}" default="suppressions.xml"/>
+    </module>
+~~~
+
+in order to override the suppression xml file in order to be able to load it in any project
